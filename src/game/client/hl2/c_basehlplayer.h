@@ -28,14 +28,18 @@ public:
 
 						C_BaseHLPlayer();
 
-						~C_BaseHLPlayer(void);
-						void ClientThink(void);
+						
+						
 						virtual void		OnDataChanged(DataUpdateType_t updateType);
 #ifdef HL2_PLAYERANIMSTATE
+						//DM -hl2 portal-animstate reimplementation.
+						//to use, define HL2_PLAYERANIMSTATE in preprocessor defs.
+						~C_BaseHLPlayer(void); //redundant from portal
+						void ClientThink(void);
 						virtual void		OnPreDataChanged(DataUpdateType_t type);
 						virtual void		PostDataUpdate(DataUpdateType_t updateType);
 
-						//hl2 portal-animstate reimplementation.
+						
 						virtual void			PreThink(void);
 						virtual void UpdateClientSideAnimation();
 						void DoAnimationEvent(PlayerAnimEvent_t event, int nData);
@@ -55,12 +59,9 @@ public:
 						void	UpdateLookAt(void);
 						void	Initialize(void);
 						virtual CStudioHdr*		OnNewModel(void);
-#endif
-
 						// Used by prediction, sets the view angles for the player
 						virtual void SetLocalViewAngles(const QAngle &viewAngles);
 						virtual void SetViewAngles(const QAngle &ang);
-
 						struct PreDataChanged_Backup_t
 						{
 							//Vector					m_ptPlayerPosition;
@@ -71,6 +72,11 @@ public:
 						float m_flCurrentHeadYaw;
 						float m_flCurrentHeadPitch;
 						float m_flStartLookTime;
+#endif
+
+						
+
+						
 
 	void				Weapon_DropPrimary( void );
 		
