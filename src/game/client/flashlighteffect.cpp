@@ -552,11 +552,12 @@ void CFlashlightEffect::UpdateFlashlightTexture( const char* pTextureName )
 bool CFlashlightEffect::ComputeLightPosAndOrientation( const Vector &vecPos, const Vector &vecForward, const Vector &vecRight, const Vector &vecUp,
 														Vector& vecFinalPos, Quaternion& quatOrientation, bool bTracePlayers )
 {
-#ifdef DEFERRED // TODO(Josh): Works on more than just deferred?
+	//DM - this works fine on hl2 base. Portal is TBD
+//#ifdef DEFERRED // TODO(Josh): Works on more than just deferred?
 	vecFinalPos = vecPos;
 	BasisToQuaternion( vecForward, vecRight, vecUp, quatOrientation );
 	return true;
-#endif
+//#endif
 
 	const float flEpsilon = 0.1f;			// Offset flashlight position along vecUp
 	float flDistCutoff = r_flashlighttracedistcutoff.GetFloat();
