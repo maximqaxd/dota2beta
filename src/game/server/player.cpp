@@ -80,6 +80,7 @@
 #ifdef HL2_DLL
 #include "combine_mine.h"
 #include "weapon_physcannon.h"
+#include "predicted_viewmodel.h"
 #endif
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -481,6 +482,27 @@ CBaseViewModel *CBasePlayer::GetViewModel( int index /*= 0*/ )
 //-----------------------------------------------------------------------------
 void CBasePlayer::CreateViewModel( int index /*=0*/ )
 {
+
+#ifdef HL2_DLL //use CpredictedViewModel.	
+	Assert(index >= 0 && index < MAX_VIEWMODELS);
+
+	if (GetViewModel(index))
+		return;
+
+	CPredictedViewModel *vm = (CPredictedViewModel *)CreateEntityByName("predicted_viewmodel");
+
+	if (vm) {
+		vm->SetAbsOrigin(GetAbsOrigin());
+		vm->SetOwner(this);
+		vm->SetIndex(index);
+
+		DispatchSpawn(vm);
+		vm->FollowEntity(this, false);
+		vm->AddEffects(EF_NODRAW);
+
+		m_hViewModel.Set(index, vm);
+	}
+#else
 	Assert( index >= 0 && index < MAX_VIEWMODELS );
 
 	if ( GetViewModel( index ) )
@@ -496,6 +518,7 @@ void CBasePlayer::CreateViewModel( int index /*=0*/ )
 		vm->FollowEntity( this );
 		m_hViewModel.Set( index, vm );
 	}
+#endif //HL2_DLL
 }
 
 //-----------------------------------------------------------------------------
