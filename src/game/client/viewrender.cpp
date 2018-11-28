@@ -5505,11 +5505,14 @@ void CShadowDepthView::Draw()
 		render->Push3DView((*this), VIEW_CLEAR_DEPTH, m_pRenderTarget, GetFrustum());
 	}
 
-#ifndef DEFERRED
-	pRenderContext.GetFrom(materials);
-	pRenderContext->PushRenderTargetAndViewport(m_pRenderTarget, m_pDepthTexture, 0, 0, m_pDepthTexture->GetMappingWidth(), m_pDepthTexture->GetMappingWidth());
-	pRenderContext.SafeRelease();
+#ifdef DEFERRED
+	if ( !GetDeferredManager()->IsDeferredRenderingEnabled() )
 #endif
+	{
+		pRenderContext.GetFrom(materials);
+		pRenderContext->PushRenderTargetAndViewport(m_pRenderTarget, m_pDepthTexture, 0, 0, m_pDepthTexture->GetMappingWidth(), m_pDepthTexture->GetMappingWidth());
+		pRenderContext.SafeRelease();
+	}
 
 	SetupCurrentView(origin, angles, VIEW_SHADOW_DEPTH_TEXTURE);
 
@@ -5561,9 +5564,10 @@ void CShadowDepthView::Draw()
 		pRenderContext->CopyRenderTargetToTextureEx(m_pDepthTexture, -1, NULL, NULL);
 	}
 
-#ifndef DEFERRED
-	pRenderContext->PopRenderTargetAndViewport();
+#ifdef DEFERRED
+	if ( !GetDeferredManager()->IsDeferredRenderingEnabled() )
 #endif
+		pRenderContext->PopRenderTargetAndViewport();
 
 	render->PopView(GetFrustum());
 

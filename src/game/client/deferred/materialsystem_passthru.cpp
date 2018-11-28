@@ -149,6 +149,10 @@ IMaterial *CDeferredMaterialSystem::FindMaterial( char const* pMaterialName, con
 {
 	IMaterial *pMat = m_pBaseMaterialsPassThru->FindMaterial( pMaterialName, pTextureGroupName, complain );
 
+	if ( CommandLine()->CheckParm( "-nodeferred" ) ) {
+		return pMat;
+	}
+
 	if ( pMat != NULL )
 	{
 		const char *pszShaderName = pMat->GetShaderName();

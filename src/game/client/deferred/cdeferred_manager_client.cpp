@@ -86,6 +86,15 @@ bool CDeferredManagerClient::Init()
 
 	AssertMsg( g_pCurrentViewRender == NULL, "viewrender already allocated?!" );
 
+	const bool bDeferredEnabled = CommandLine() && CommandLine()->FindParm( "-nodeferred" ) == 0;
+
+	if (!bDeferredEnabled) {
+		Msg( "Using stdshaders, because of -nodeferred param.\n" );
+		g_pCurrentViewRender = new CViewRender();
+
+		return true;
+	}
+
 	const bool bForceDeferred = CommandLine() && CommandLine()->FindParm("-forcedeferred") != 0;
 	bool bSM30 = g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 95;
 

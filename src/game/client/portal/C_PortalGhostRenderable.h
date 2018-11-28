@@ -75,6 +75,7 @@ public:
 	virtual float *GetRenderClipPlane( void ) { return m_pSharedRenderClipPlane; };
 
 	virtual int	DrawModel( int flags, const RenderableInstance_t& instance );
+	virtual bool OnInternalDrawModel( ClientModelRenderInfo_t *pInfo );
 
 	// Get the model instance of the ghosted model so that decals will properly draw across portals
 	virtual ModelInstanceHandle_t GetModelInstance();
@@ -118,6 +119,7 @@ public:
 	virtual ICollideable*			GetCollideable() { return NULL; };
 	virtual IClientNetworkable*		GetClientNetworkable() { return NULL; };
 	virtual IClientRenderable*		GetClientRenderable() { return this; };
+	virtual IClientModelRenderable*	GetClientModelRenderable() { return NULL; } // disable fast path
 	virtual IClientEntity*			GetIClientEntity() { return NULL; };
 	virtual C_BaseEntity*			GetBaseEntity() { return NULL; };
 	virtual IClientThinkable*		GetClientThinkable() { return NULL; };

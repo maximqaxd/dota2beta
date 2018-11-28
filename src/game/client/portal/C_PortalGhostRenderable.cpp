@@ -11,6 +11,8 @@
 #include "c_portal_player.h"
 #include "model_types.h"
 
+ConVar portal_ghosts_disable( "portal_ghosts_disable", "0", FCVAR_NONE, "Disables rendering of ghosted objects in portal environments" );
+
 C_PortalGhostRenderable::C_PortalGhostRenderable( C_Prop_Portal *pOwningPortal, C_BaseEntity *pGhostSource, const VMatrix &matGhostTransform, float *pSharedRenderClipPlane, bool bLocalPlayer )
 : m_pGhostedRenderable( pGhostSource ), 
 	m_matGhostTransform( matGhostTransform ), 
@@ -224,6 +226,9 @@ bool C_PortalGhostRenderable::GetAttachmentVelocity( int number, Vector &originV
 
 int C_PortalGhostRenderable::DrawModel( int flags, const RenderableInstance_t& instance )
 {
+	if ( portal_ghosts_disable.GetBool() )
+		return 0;
+
 	if( m_bSourceIsBaseAnimating )
 	{
 		if( m_bLocalPlayer )
@@ -261,6 +266,13 @@ int C_PortalGhostRenderable::DrawModel( int flags, const RenderableInstance_t& i
 	}
 
 	return 0;
+}
+
+bool C_PortalGhostRenderable::OnInternalDrawModel( ClientModelRenderInfo_t *pInfo )
+{
+	// TODO: account for m_pGhostedRenderable having a custom lighting origin
+	pInfo->pLightingOrigin = &(m_pGhostedRenderable->GetAbsOrigin());
+	return true;
 }
 
 ModelInstanceHandle_t C_PortalGhostRenderable::GetModelInstance()
