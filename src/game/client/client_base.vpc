@@ -631,6 +631,12 @@ $Project
 			$File	"game_controls\vguitextwindow.cpp"
 			$File	"game_controls\IconPanel.cpp"
 		}
+		
+		$Folder	"Weapons"
+		{
+			$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.h"
+			$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.cpp"
+		}
 
 	}
 

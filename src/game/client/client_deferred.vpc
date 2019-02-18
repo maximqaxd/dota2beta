@@ -54,8 +54,6 @@ $Project "Client (Deferred)"
 			{
 				$File	"template\weapons\c_basesdkcombatweapon.cpp"
 				$File	"$SRCDIR\game\shared\template\weapons\basesdkcombatweapon_shared.cpp"
-				$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.h"
-				$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.cpp"
 			}
 
 			$Folder	"VGUI"
