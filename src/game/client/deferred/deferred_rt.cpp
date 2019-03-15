@@ -45,7 +45,9 @@ float GetDepthMapDepthResolution( float zDelta )
 
 void DefRTsOnModeChanged()
 {
-	InitDeferredRTs();
+	// Causes a crash ingame, so only allow in main menu
+	if ( !engine->IsInGame() )
+		InitDeferredRTs();
 }
 
 void InitDeferredRTs( bool bInitial )
@@ -53,10 +55,10 @@ void InitDeferredRTs( bool bInitial )
 	if ( !bInitial )
 		materials->ReEnableRenderTargetAllocation_IRealizeIfICallThisAllTexturesWillBeUnloadedAndLoadTimeWillSufferHorribly(); // HAHAHAHA. No.
 
-	int screen_w, screen_h;
+	//int screen_w, screen_h;
 	int dummy = 128;
 
-	materials->GetBackBufferDimensions( screen_w, screen_h );
+	//materials->GetBackBufferDimensions( screen_w, screen_h );
 
 const ImageFormat fmt_gbuffer0 =
 #if DEFCFG_LIGHTCTRL_PACKING
@@ -407,6 +409,10 @@ const ImageFormat fmt_gbuffer0 =
 	
 
 	materials->EndRenderTargetAllocation();
+	
+	if (!bInitial)
+		materials->FinishRenderTargetAllocation();
+
 
 	GetDeferredExt()->CommitTexture_General( g_tex_Normals, g_tex_Depth,
 #if ( DEFCFG_LIGHTCTRL_PACKING == 0 )
