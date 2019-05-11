@@ -223,7 +223,7 @@ void C_GlobalLight::ClientThink()
 		state.m_nSpotlightTextureFrame = 0;
 
 		state.m_nShadowQuality = 1; // Allow entity to affect shadow quality
-//		state.m_bShadowHighRes = true;
+		state.m_bShadowHighRes = true;
 
 		if ( m_bOldEnableShadows != m_bEnableShadows )
 		{

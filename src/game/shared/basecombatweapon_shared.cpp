@@ -28,9 +28,9 @@
 #include "tier0/memdbgon.h"
 
 // The minimum time a hud hint for a weapon should be on screen. If we switch away before
-// this, then teh hud hint counter will be deremented so the hint will be shown again, as
+// this, then the hud hint counter will be decremented so the hint will be shown again, as
 // if it had never been seen. The total display time for a hud hint is specified in client
-// script HudAnimations.txt (which I can't read here). 
+// script HudAnimations.txt (which can't be read here). 
 #define MIN_HUDHINT_DISPLAY_TIME 7.0f
 
 #define HIDEWEAPON_THINK_CONTEXT			"BaseCombatWeapon_HideThink"

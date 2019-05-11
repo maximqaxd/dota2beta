@@ -844,6 +844,12 @@ $Project
 			$File	"te_worlddecal.cpp"
 			$File	"$SRCDIR\game\shared\usermessages.cpp"
 		}
+		
+		$Folder	"Weapons"
+		{
+			$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.h"
+			$File	"$SRCDIR\game\shared\smmod\weapon_parse_custom_weapon.cpp"
+		}
 
 	}
 
