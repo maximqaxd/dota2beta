@@ -24,12 +24,10 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-// This is so modders can change ball stuff 3-5.
-
-ConVar	vectronic_vecball3_sprite	( "vectronic_vecball3_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
-ConVar	vectronic_vecball4_sprite	( "vectronic_vecball4_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
-ConVar	vectronic_vecball5_sprite	( "vectronic_vecball5_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
-
+// vecball 3-5 defines moved to vectronic_gamerules.cpp (maddi)
+extern ConVar	vectronic_vecball3_sprite;
+extern ConVar	vectronic_vecball4_sprite;
+extern ConVar	vectronic_vecball5_sprite;
 
 // Precache our effects
 extern ConVar vectronic_vecball3_color_r;

@@ -57,10 +57,11 @@ ConVar	vectronic_vecball5_color_r	( "vectronic_vecball5_color_r",				"123",	FCVA
 ConVar	vectronic_vecball5_color_g	( "vectronic_vecball5_color_g",				"124",	FCVAR_REPLICATED );
 ConVar	vectronic_vecball5_color_b	( "vectronic_vecball5_color_b",				"193",	FCVAR_REPLICATED );
 
-// Find convars
-extern ConVar	vectronic_vecball3_sprite;
-extern ConVar	vectronic_vecball4_sprite;
-extern ConVar	vectronic_vecball5_sprite;
+// This is so modders can change ball stuff 3-5.
+ConVar	vectronic_vecball3_sprite	( "vectronic_vecball3_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
+ConVar	vectronic_vecball4_sprite	( "vectronic_vecball4_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
+ConVar	vectronic_vecball5_sprite	( "vectronic_vecball5_sprite",	BALL_SPRITE_DEFAULT, FCVAR_REPLICATED | FCVAR_RELOAD_MATERIALS | FCVAR_RELOAD_TEXTURES );
+
 extern ConVar	vectronic_vecgun_use_custom_balls;
 extern ConVar	vectronic_vecgun_ball_lifetime;
 
