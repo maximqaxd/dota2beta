@@ -224,9 +224,7 @@ struct DmxElementUnpackStructure_t
 			int nSize = ( sizeof(_structName) + 3 ) & ~0x3;						\
 			unsigned char *pBuf = ( unsigned char * )stackalloc(nSize);			\
 			memset( pBuf, 0, nSize );											\
-PRAGMA_DISABLE_4310;															\
 			(( _structName * )pBuf)->_fieldName = (_type)(0xFFFFFFFF);			\
-PRAGMA_ENABLE_4310;																\
 			_type *pTest = (_type *)pBuf;										\
 			for ( int i = 0; i < sizeof(_structName); ++i )						\
 			{																	\

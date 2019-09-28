@@ -133,7 +133,6 @@ $Project "Client (Deferred)"
 
 	$Folder	"Link Libraries"
 	{
-		$Lib "$LIBCOMMON\jpeglib"
 		$Lib "$LIBPUBLIC\vpklib"
 	}
 }

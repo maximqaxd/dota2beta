@@ -369,7 +369,12 @@ typedef unsigned int		uint;
 	#define NO_VTABLE				__declspec( novtable )
 
 	// gcc doesn't allow storage specifiers on explicit template instatiation, but visual studio needs them to avoid link errors.
+	// however newer builds of MSVC follow the (correct) GCC standard. Not sure when this fix occurred, I'm going to guess it was with the VS2017 v141 toolset.
+#if _MSC_VER >= 1910
+	#define TEMPLATE_STATIC			
+#else
 	#define TEMPLATE_STATIC			static
+#endif
 
 	// Used for dll exporting and importing
 	#define DLL_EXPORT				extern "C" __declspec( dllexport )

@@ -2041,14 +2041,14 @@ private:
 
 	bool							m_bRayParticles;
 
-	typedef struct SnowFall_t
+	typedef struct
 	{
 		PMaterialHandle			m_hMaterial;
 		CClient_Precipitation	*m_pEntity;
 		SnowFallEffect			*m_pEffect;
 		Vector					m_vecMin;
 		Vector					m_vecMax;
-	};
+	} SnowFall_t;
 
 	CUtlVector<SnowFall_t>		m_aSnow;
 	int								m_nSplitScreenPlayerSlot;
