@@ -75,7 +75,7 @@ inline void vecToStringCol( Vector col, char *out, int maxLen )
 		col /= flMax;
 
 	col *= 255;
-	int it4[] = { XYZ( col ), flMax * 255 };
+	int it4[] = { static_cast<int>(col.x), static_cast<int>(col.y), static_cast<int>(col.z), static_cast<int>(flMax * 255) };
 
 	Q_snprintf( out, maxLen, "%i %i %i %i", it4[0], it4[1], it4[2], it4[3] );
 }
