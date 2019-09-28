@@ -11,6 +11,7 @@
 #include "ammodef.h"
 #include "hl2_shareddefs.h"
 #include "portal_shareddefs.h"
+#include "shareddefs.h"
 
 #ifdef CLIENT_DLL
 
@@ -220,7 +221,7 @@ static ConCommand ent_create_portal_metal_sphere("ent_create_portal_metal_sphere
 	//------------------------------------------------------------------------------
 	void CPortalGameRules::InitDefaultAIRelationships( void )
 	{
-		//int i, j;
+		int i, j;
 
 		//  Allocate memory for default relationships
 		CBaseCombatCharacter::AllocateDefaultRelationships();
@@ -228,7 +229,7 @@ static ConCommand ent_create_portal_metal_sphere("ent_create_portal_metal_sphere
 		// --------------------------------------------------------------
 		// First initialize table so we can report missing relationships
 		// --------------------------------------------------------------
-		/*for (i=0;i<NUM_AI_CLASSES;i++)
+		for (i=0;i<NUM_AI_CLASSES;i++)
 		{
 			for (j=0;j<NUM_AI_CLASSES;j++)
 			{
@@ -360,7 +361,7 @@ static ConCommand ent_create_portal_metal_sphere("ent_create_portal_metal_sphere
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_BULLSQUID,			CLASS_EARTH_FAUNA,		D_NU, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_BULLSQUID,			CLASS_PLAYER_ALLY,		D_HT, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_BULLSQUID,			CLASS_PLAYER_ALLY_VITAL,D_HT, 0);
-
+		*/
 		// ------------------------------------------------------------
 		//	> CLASS_CITIZEN_PASSIVE
 		// ------------------------------------------------------------
@@ -602,7 +603,7 @@ static ConCommand ent_create_portal_metal_sphere("ent_create_portal_metal_sphere
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_HOUNDEYE,			CLASS_EARTH_FAUNA,		D_NU, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_HOUNDEYE,			CLASS_PLAYER_ALLY,		D_HT, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_HOUNDEYE,			CLASS_PLAYER_ALLY_VITAL,D_HT, 0);
-		
+		*/
 
 		// ------------------------------------------------------------
 		//	> CLASS_MANHACK
@@ -1025,7 +1026,6 @@ static ConCommand ent_create_portal_metal_sphere("ent_create_portal_metal_sphere
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_EARTH_FAUNA,			CLASS_EARTH_FAUNA,		D_NU, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_EARTH_FAUNA,			CLASS_PLAYER_ALLY,		D_HT, 0);
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_EARTH_FAUNA,			CLASS_PLAYER_ALLY_VITAL,D_HT, 0);
-		*/
 	}
 
 

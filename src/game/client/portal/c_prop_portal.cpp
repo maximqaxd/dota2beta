@@ -854,8 +854,6 @@ int C_Prop_Portal::DrawModel( int flags, const RenderableInstance_t& instance )
 	if( m_bActivated == false || building_cubemaps.GetBool() )
 		return 0;
 
-	int iRetVal = 0;
-
 	C_Prop_Portal *pLinkedPortal = m_hLinkedPortal.Get();
 
 	if ( pLinkedPortal == NULL )
@@ -867,13 +865,14 @@ int C_Prop_Portal::DrawModel( int flags, const RenderableInstance_t& instance )
 	{
 		DrawPortal();
 	}
+	// otherwise portals are drawn by CPortalRender::DrawPortalsUsingStencils
 
 	if( WillUseDepthDoublerThisDraw() )
 		m_fSecondaryStaticAmount = 0.0f;
 
-	iRetVal = BaseClass::DrawModel( flags, instance );
+	// Intentionally not calling BaseClass::DrawModel. We're drawn elsewhere.
 
-	return iRetVal;
+	return 1;
 }
 
 

@@ -78,6 +78,8 @@ public:
 	virtual CPortalRenderable *GetLinkedPortal() const { return m_pLinkedPortal; };
 	bool			CalcFrustumThroughPortal( const Vector &ptCurrentViewOrigin, Frustum OutputFrustum );
 
+	virtual IClientModelRenderable*	GetClientModelRenderable() { return NULL; } // disable fast path
+
 protected:
 	void			ClipFixToBoundingAreaAndDraw( PortalMeshPoint_t *pVerts, const IMaterial *pMaterial );
 	void			Internal_DrawRenderFixMesh( const IMaterial *pMaterial );
