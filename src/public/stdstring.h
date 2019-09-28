@@ -21,6 +21,7 @@
 #pragma warning(disable:4245)
 #pragma warning(disable:4018)
 #pragma warning(disable:4511)
+#pragma warning(disable:4005)
 #endif
 
 #include <string>
