@@ -208,11 +208,11 @@ struct DmxElementUnpackStructure_t
 	DmxElementUnpackStructure_t *_structName::_varName = _namespace##_structName##_UnpackInit::s_pUnpack;  \
 
 #ifdef PLATFORM_POSIX
-#define PRAGMA_DISABLE_4310
-#define PRAGMA_ENABLE_4310
+#define PRAGMA_DISABLE_DMXELEMENT_WARNINGS
+#define PRAGMA_ENABLE_DMXELEMENT_WARNINGS
 #else
-#define PRAGMA_DISABLE_4310 __pragma(warning(disable:4310))
-#define PRAGMA_ENABLE_4310 __pragma(warning(default:4310))
+#define PRAGMA_DISABLE_DMXELEMENT_WARNINGS __pragma(warning(push)); __pragma(warning(disable:4310)); __pragma(warning(disable:4463))
+#define PRAGMA_ENABLE_DMXELEMENT_WARNINGS __pragma(warning(pop))
 #endif
 
 #define DECLARE_DMXELEMENT_BITFIELD( _fieldName, _type, _structName )								\
@@ -224,9 +224,9 @@ struct DmxElementUnpackStructure_t
 			int nSize = ( sizeof(_structName) + 3 ) & ~0x3;						\
 			unsigned char *pBuf = ( unsigned char * )stackalloc(nSize);			\
 			memset( pBuf, 0, nSize );											\
-PRAGMA_DISABLE_4310;															\
+			PRAGMA_DISABLE_DMXELEMENT_WARNINGS;									\
 			(( _structName * )pBuf)->_fieldName = (_type)(0xFFFFFFFF);			\
-PRAGMA_ENABLE_4310;																\
+			PRAGMA_ENABLE_DMXELEMENT_WARNINGS;									\
 			_type *pTest = (_type *)pBuf;										\
 			for ( int i = 0; i < sizeof(_structName); ++i )						\
 			{																	\

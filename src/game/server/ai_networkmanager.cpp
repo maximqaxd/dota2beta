@@ -1179,7 +1179,7 @@ void CAI_NetworkManager::ThreadedInit( void )
 
 			break;
 		default:
-			AssertMsg1( false, "Invalid threaded node graph build stage %d!\n", m_ThreadedBuild.nBuildStage );
+			AssertMsg1( false, "Invalid threaded node graph build stage %d!\n", static_cast<int>(m_ThreadedBuild.nBuildStage) );
 		}
 	}
 

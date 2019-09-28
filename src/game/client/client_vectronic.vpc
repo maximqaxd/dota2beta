@@ -145,7 +145,6 @@ $Project "Client (Vectronic)"
 
 	$Folder	"Link Libraries"
 	{
-		$Lib "$LIBCOMMON\jpeglib"
 		$Lib "$LIBPUBLIC\vpklib"
 	}
 }

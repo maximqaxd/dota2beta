@@ -30,8 +30,14 @@ $Configuration
 		$MultiProcessorCompilation "True"
 
 		// warning C4316: object allocated on the heap may not be aligned 16
-		$DisableSpecificWarnings	"$BASE;4316" [$VS2013]
+		$DisableSpecificWarnings	"$BASE;4316;" [$VS2013]
 
+		// warnings C4456 thru C4459 have to do with local deifnitions overriding parameters/globals/members
+		// ideally we wouldn't want to have these warnings -- however, by changing code to prevent them we also may break mods on ES base (breaking change)
+		// just disable them, they dont actually cause any issues
+		// FIXING it may actually create more issues, if not done properly. https://flak.tedunangst.com/post/warning-implicit-backdoor
+		$DisableSpecificWarnings	"$BASE;4456;4457;4458;4459;" [$VS2019]
+		
 		// Having lots of warnings makes it harder to notice new, and possibly
 		// important warnings, both on buildbot and in the output window. Lots
 		// of warnings also makes it harder to skip through errors in the output

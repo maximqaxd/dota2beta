@@ -1217,24 +1217,24 @@ FORCEINLINE float CBitRead::ReadFloat( void )
 #endif
 FORCEINLINE unsigned int CBitRead::ReadUBitVar( void )
 {
-	unsigned int ret = ReadUBitLong( 6 );
-	switch( ret & ( 16 | 32 ) )
+	unsigned int ubitRet = ReadUBitLong( 6 );
+	switch( ubitRet & ( 16 | 32 ) )
 	{
 		case 16:
-			ret = ( ret & 15 ) | ( ReadUBitLong( 4 ) << 4 );
-			Assert( ret >= 16);
+			ubitRet = ( ubitRet & 15 ) | ( ReadUBitLong( 4 ) << 4 );
+			Assert( ubitRet >= 16);
 			break;
 				
 		case 32:
-			ret = ( ret & 15 ) | ( ReadUBitLong( 8 ) << 4 );
-			Assert( ret >= 256);
+			ubitRet = ( ubitRet & 15 ) | ( ReadUBitLong( 8 ) << 4 );
+			Assert( ubitRet >= 256);
 			break;
 		case 48:
-			ret = ( ret & 15 ) | ( ReadUBitLong( 32 - 4 ) << 4 );
-			Assert( ret >= 4096 );
+			ubitRet = ( ubitRet & 15 ) | ( ReadUBitLong( 32 - 4 ) << 4 );
+			Assert( ubitRet >= 4096 );
 			break;
 	}
-	return ret;
+	return ubitRet;
 }
 #ifdef _WIN32
 #pragma warning(pop)

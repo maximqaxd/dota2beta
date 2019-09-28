@@ -102,7 +102,7 @@ public:
 	virtual const char *GetPlayerName(int trackerID)
 	{
 		// find the player by their friendsID
-		player_info_t pi;
+		static player_info_t pi;
 		for (int i = 0; i < engine->GetMaxClients(); i++)
 		{
 			if  (engine->GetPlayerInfo(i, &pi ))
@@ -120,7 +120,7 @@ public:
 	virtual const char *GetPlayerFriendsName(int trackerID)
 	{
 		// find the player by their friendsID
-		player_info_t pi;
+		static player_info_t pi;
 		for (int i = 0; i < engine->GetMaxClients(); i++)
 		{
 			if  (engine->GetPlayerInfo(i, &pi ))

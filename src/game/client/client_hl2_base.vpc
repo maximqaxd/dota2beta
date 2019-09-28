@@ -206,7 +206,6 @@ $Project
 	
 	$Folder	"Link Libraries"
 	{
-		$Lib "$LIBCOMMON\jpeglib"
 		$Lib "$LIBPUBLIC\vpklib"
 	}
 }

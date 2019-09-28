@@ -10,7 +10,6 @@
 #include "filesystem.h"
 #include "utldict.h"
 #include "ammodef.h"
-#include <string>
 
 #ifndef CLIENT_DLL
 #ifdef SMMOD
@@ -23,6 +22,10 @@
 	#include "networkstringtabledefs.h"
 #endif
 
+#ifdef SMMOD
+// Why would you ever use std::string in a Source engine game? This causes loads of issues. If you want to use SMMOD then be warned.
+#include <string>
+#endif
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
