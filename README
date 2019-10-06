@@ -2,7 +2,7 @@ Features
 -----------------------
 
 - Source Shader Editor integration
-- Support for VS 2010-13
+- Support for VS 2010-13 + 2019
 - HL2, Portal, Deferred project templates
 - Fixed Hammer Editor
 - Updated engine binaries
@@ -11,7 +11,7 @@ Requirements
 -----------------------
 
 -MFC Multibyte library for Visual Studio
-
+- (Optional) Python for better VS2019 integration
 Contributors
 -----------------------
 
