@@ -11,7 +11,7 @@ Requirements
 -----------------------
 
 -MFC Multibyte library for Visual Studio
-- (Optional) Python for better VS2019 integration
+
 Contributors
 -----------------------
 
@@ -23,3 +23,4 @@ Contributors
 - biohazard90
 - DasMaddi
 - Practical Problems
+- Ethan
