@@ -7,7 +7,7 @@
 //=============================================================================//
 
 #include "cbase.h"
-#include "sdk_player.h"
+#include "dota_player.h"
 #include "gamerules.h"
 #include "entitylist.h"
 #include "physics.h"
@@ -35,14 +35,14 @@ called each time a player is spawned into the game
 void ClientPutInServer( edict_t *pEdict, const char *playername )
 {
 	// Allocate a CBasePlayer for pev, and call spawn
-	CSDKPlayer *pPlayer = CSDKPlayer::CreatePlayer( "player", pEdict );
+	CDOTAPlayer *pPlayer = CDOTAPlayer::CreatePlayer( "player", pEdict );
 	pPlayer->SetPlayerName( playername );
 }
 
 
 void ClientActive( edict_t *pEdict, bool bLoadGame )
 {
-	CSDKPlayer *pPlayer = dynamic_cast< CSDKPlayer* >( CBaseEntity::Instance( pEdict ) );
+	CDOTAPlayer *pPlayer = dynamic_cast<CDOTAPlayer* >( CBaseEntity::Instance( pEdict ) );
 	Assert( pPlayer );
 
 	if ( !pPlayer )
@@ -127,7 +127,7 @@ void respawn( CBaseEntity *pEdict, bool fCopyCorpse )
 		if ( fCopyCorpse )
 		{
 			// make a copy of the dead body for appearances sake
-			((CSDKPlayer *)pEdict)->CreateCorpse();
+			((CDOTAPlayer*)pEdict)->CreateCorpse();
 		}
 
 		// respawn player
@@ -166,5 +166,5 @@ void ClientFullyConnect( edict_t *pEntity )
 //=========================================================
 void InstallGameRules()
 {
-	CreateGameRulesObject( "CSDKGameRules" );
+	CreateGameRulesObject( "CDOTAGameRules" );
 }
