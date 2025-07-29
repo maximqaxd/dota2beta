@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommand>C:\Dev\PC\dota2beta\game\swarm.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments>-game deferred -dev 5 -sw -w 1280 -h 720 -allowdebug +map test</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\..\..\game\deferred</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>
