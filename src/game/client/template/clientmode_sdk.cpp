@@ -18,7 +18,7 @@
 #include "hud_basechat.h"
 #include "achievementmgr.h"
 #include "fmtstr.h"
-#include "c_sdk_player.h"
+#include "c_dota_player.h"
 #include "soundenvelope.h"
 #include "ivmodemanager.h"
 #include "voice_status.h"
@@ -483,7 +483,7 @@ void ClientModeSDK::OnColorCorrectionWeightsReset( void )
 {
 	C_ColorCorrection *pNewColorCorrection = NULL;
 	C_ColorCorrection *pOldColorCorrection = m_pCurrentColorCorrection;
-	C_SDKPlayer* pPlayer = C_SDKPlayer::GetLocalPlayer();
+	C_DOTAPlayer* pPlayer = C_DOTAPlayer::GetLocalPlayer();
 	if ( pPlayer )
 	{
 		pNewColorCorrection = pPlayer->GetActiveColorCorrection();
@@ -579,7 +579,7 @@ void ClientModeSDK::DoObjectMotionBlur( const CViewSetup *pSetup )
 void ClientModeSDK::UpdatePostProcessingEffects()
 {
 	C_PostProcessController *pNewPostProcessController = NULL;
-	C_SDKPlayer* pPlayer = C_SDKPlayer::GetLocalPlayer();
+	C_DOTAPlayer* pPlayer = C_DOTAPlayer::GetLocalPlayer();
 	if ( pPlayer )
 	{
 		pNewPostProcessController = pPlayer->GetActivePostProcessController();
